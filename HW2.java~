@@ -1,0 +1,133 @@
+
+//Create a class that name HW2
+ public class HW2 {
+   
+    //This method returns true if the desired number of characters of each input string is exactly the same.
+    //If it is not returns false.
+    public static boolean samePrefix(String s1,String s2, int length){
+ 
+      if((length > s1.length()) || (length > s2.length())){
+         return false;
+         }
+    
+      else {
+        for(int i=0 ; i < length ; i++){
+          if(s1.charAt(i) != s2.charAt(i))
+            return false;
+         }
+      }
+     
+      
+      return true;
+                                 
+   }   
+  
+  
+    //This method delete spaces from front. It does not delete other spaces.
+    public static String trimSpacesFromFront(String word2){
+    
+      StringBuilder stb = new StringBuilder();
+  
+       String newStr = "";
+       Boolean finish = false;
+      
+       for(int i=0 ; i < word2.length(); i++){
+         if(word2.charAt(i) != ' '){
+           finish = true;
+           }
+    
+       if(finish){
+         newStr += word2.charAt(i);
+          }
+        }
+       return newStr.toString();
+   }
+  
+
+    //This method returns the same character as how many times it is requested
+    public static String repeatChars(String s,int N){
+   
+      StringBuilder builder = new StringBuilder();
+    
+        for(int i=0 ; i < s.length(); i++){
+          
+          for(int j=0 ; j < N ; j++){
+            builder.append(s.charAt(i));
+          }
+      
+       }
+       
+      return builder.toString();
+     
+   }
+  
+  
+    //This method returns how many words are there
+    public static int countWords(String word1){
+      
+      int counter = 0;
+      String temp = "" ;
+
+      if(word1.length() == 0){
+        counter -= 1;
+      }
+       for(int i=0 ; i < word1.length(); i++){
+    
+         if(i==0 &&(word1.charAt(0) == ' ') || (i == word1.length() - 1 && word1.charAt(word1.length()-1) == ' ' )  ){
+           counter += 0;    
+          }
+         
+         else if((word1.charAt(i) == ' ') && (temp != " ")){
+            counter++;
+          }
+        
+         temp = word1.charAt(i) + "";
+        }
+       
+       counter++;
+      
+       return counter;
+       
+   }
+  
+  
+     //This method returns true if  subsequence of a string is a sequence of characters that occur in order.
+     //If it is not returns false.
+     public static boolean subSequence(String s1,String s2){
+    
+       int temp=0;  
+       
+       if(s1.length() > s2.length()){
+         return false;
+       }
+       else if((s1.length()==0) && (s2.length()==0)){
+             return true;
+       }
+        
+       else{
+       
+         for(int i=0 ; i < s2.length(); i++){
+         
+           if(s1.charAt(temp) == s2.charAt(i)){
+           
+             temp++;
+           }
+           if(temp == s1.length()){
+              
+             return true;
+           }
+           
+           
+         }
+         
+      }
+        
+       
+      return false;
+         
+   }
+  
+  
+}
+
+  
